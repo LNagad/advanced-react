@@ -1,20 +1,23 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../logo.svg';
+import { routes } from '../routes/routes';
 
 export const NavBar = () => {
-   return (  
+   return (
       <nav>
-         <img src={ logo } alt="React Logo" />
+         <img src={logo} alt="React Logo" />
          <ul>
-            <li>
-               <NavLink to='/' className={ ({ isActive }) => isActive ? 'nav-active' : '' }>Home</NavLink>
-            </li>
-            <li>
-               <NavLink to='/about' className={ ({ isActive }) => isActive ? 'nav-active' : '' }>About</NavLink>
-            </li>
-            <li>
-               <NavLink to='/users' className={ ({ isActive }) => isActive ? 'nav-active' : '' }>Users</NavLink>
-            </li>
+            {routes.map(({ to, name }) => {
+               if (name === 'Error') return;
+               return (
+                  <li key={to}>
+                     <NavLink
+                        to={to}
+                        className={({ isActive }) => (isActive ? 'nav-active' : '')}>{name}
+                     </NavLink>
+                  </li>
+               );
+            })}
          </ul>
       </nav>
    );
