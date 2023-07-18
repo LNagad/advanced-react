@@ -1,18 +1,20 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import { ErrorPage } from '../pages/ErrorPage';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import { MainApp } from '../pages/MainApp';
+import { RegisterPage, FormikBasicPage } from '../03-forms/pages';
+import { ErrorPage } from '../pages/ErrorPage';
   
 const browserRouter = createBrowserRouter([
    {
       element: <MainApp />,
       children: [
          {
-            path: '/',
-            element: <h1 className='text-white'>Home page</h1>,
+            path: '/register',
+            element: <RegisterPage />,
          },
          {
-            path: '/about',
-            element: <h1 className='text-white'>About page</h1>,
+            path: '/formik-basic',
+            element: <FormikBasicPage />,
          },
          {
             path: '/users',
