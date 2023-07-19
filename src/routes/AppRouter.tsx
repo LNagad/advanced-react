@@ -1,9 +1,14 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import { MainApp } from '../pages/MainApp';
-import { RegisterPage, FormikBasicPage } from '../03-forms/pages';
-import { ErrorPage } from '../pages/ErrorPage';
-  
+import { MainApp, ErrorPage } from '../pages/';
+import {
+   RegisterPage,
+   FormikBasicPage,
+   FormikComponents,
+   FormikYupPage,
+   FormikAbstractation,
+} from '../03-forms/pages';
+
 const browserRouter = createBrowserRouter([
    {
       element: <MainApp />,
@@ -17,12 +22,24 @@ const browserRouter = createBrowserRouter([
             element: <FormikBasicPage />,
          },
          {
+            path: '/formik-yup',
+            element: <FormikYupPage />,
+         },
+         {
+            path: '/formik-components',
+            element: <FormikComponents />,
+         },
+         {
+            path: '/formik-abstractation',
+            element: <FormikAbstractation />,
+         },
+         {
             path: '/users',
-            element: <h1 className='text-white'>Users page</h1>,
+            element: <h1 className="text-white">Users page</h1>,
          },
          {
             path: '/*',
-            element: <ErrorPage />
+            element: <ErrorPage />,
          },
       ],
    },
@@ -33,7 +50,5 @@ const browserRouter = createBrowserRouter([
 ]);
 
 export const AppRouter = () => {
-   return (
-      <RouterProvider router={browserRouter} />
-   );
+   return <RouterProvider router={browserRouter} />;
 };
