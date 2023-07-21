@@ -43,6 +43,27 @@ export const NavBar = () => {
             </li>
             <li>
                <NavLink
+                  to="/formik-register"
+                  className={({ isActive }) => (isActive ? 'nav-active' : '')}
+               >Register formik page
+               </NavLink>
+            </li>
+            <li>
+               <NavLink
+                  to="/formik-abstractation-hook"
+                  className={({ isActive }) => (isActive ? 'nav-active' : '')}
+               >Register formik hook page
+               </NavLink>
+            </li>
+            <li>
+               <NavLink
+                  to="/dynamic-form"
+                  className={({ isActive }) => (isActive ? 'nav-active' : '')}
+               >Dynamic form
+               </NavLink>
+            </li>
+            <li>
+               <NavLink
                   to="/users"
                   className={({ isActive }) => (isActive ? 'nav-active' : '')}
                >Users

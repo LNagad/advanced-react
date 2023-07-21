@@ -1,12 +1,15 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 
 import { MainApp, ErrorPage } from '../pages/';
+import { RegisterFormikHook } from '../03-forms/pages/RegisterFormikHook';
 import {
    RegisterPage,
    FormikBasicPage,
    FormikComponents,
    FormikYupPage,
    FormikAbstractation,
+   RegisterFormikPage,
+   DynamicForm,
 } from '../03-forms/pages';
 
 const browserRouter = createBrowserRouter([
@@ -34,8 +37,24 @@ const browserRouter = createBrowserRouter([
             element: <FormikAbstractation />,
          },
          {
+            path: '/formik-register',
+            element: <RegisterFormikPage />,
+         },
+         {
+            path: '/formik-abstractation-hook',
+            element: <RegisterFormikHook />,
+         },
+         {
+            path: '/dynamic-form',
+            element: <DynamicForm />,
+         },
+         {
             path: '/users',
             element: <h1 className="text-white">Users page</h1>,
+         },
+         {
+            path: '/',
+            element: <Navigate to='/register' />,
          },
          {
             path: '/*',
